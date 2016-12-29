@@ -145,8 +145,10 @@ export class Repository implements iRepository{
     });
 
     return new Promise((resolve, reject) => {
-      this.model
-        .findById(id)
+      let doc : any = this.model.findById(id);
+      
+      doc
+        .deepPopulate(populate.join(' '))
         .exec(function(e, r)
         {
           if(e){ return reject(e); }
@@ -258,19 +260,21 @@ export class Repository implements iRepository{
     });
 
     return new Promise((resolve, reject) => {
-      this.model
+      let doc: any = this.model
         .find(criteria)
         .select(fields)
         .limit(limit)
         .skip(page * limit)
-        // .deepPopulate(populate.join(' '))
-        .sort(sort)
-        .exec(function(e, r)
-        {
-          if(e){return reject(e); }
+        .sort(sort);
+      
+        doc
+          .deepPopulate(populate.join(' '))
+          .exec(function(e, r)
+          {
+            if(e){return reject(e); }
 
-          resolve(r);
-        });
+            resolve(r);
+          });
     });    
   }
 

@@ -117,7 +117,7 @@ export class Controller implements iController{
     this.allowCrossDomain(req, res, next);
 
     this.repository.count(req.query)
-      .catch(e => {
+      .catch((e, status?) => {
         res.status(status || 500).send(e);
       })
       .then(r => {
@@ -140,7 +140,7 @@ export class Controller implements iController{
     this.allowCrossDomain(req, res, next);
 
     this.repository.load(req.params.id, req.query)
-      .catch(e => {
+      .catch((e, status?) => {
         res.status(status || 500).send(e);
       })
       .then(r => {
@@ -163,7 +163,7 @@ export class Controller implements iController{
     this.allowCrossDomain(req, res, next);
 
     this.repository.list(req.query)
-      .catch(e => {
+      .catch((e, status?) => {
         res.status(status || 500).send(e);
       })
       .then(r => {
@@ -186,7 +186,7 @@ export class Controller implements iController{
     this.allowCrossDomain(req, res, next);
     
     this.repository.create(req.body)
-      .catch(e => {
+      .catch((e, status?) => {
         res.status(status || 500).send(e);
       })
       .then(r => {
@@ -209,7 +209,7 @@ export class Controller implements iController{
     this.allowCrossDomain(req, res, next);
 
     this.repository.update(req.params.id, req.body)
-      .catch(e => {
+      .catch((e, status?) => {
         res.status(status || 500).send(e);
       })
       .then(r => {
@@ -232,7 +232,7 @@ export class Controller implements iController{
     this.allowCrossDomain(req, res, next);
 
     this.repository.delete(req.params.id)
-      .catch(e => {
+      .catch((e, status?) => {
         res.status(status || 500).send(e);
       })
       .then(r => {

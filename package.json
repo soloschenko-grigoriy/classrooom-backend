@@ -8,8 +8,7 @@
     "express": "^4.13.3",
     "imagemagick": "^0.1.3",
     "method-override": "^2.3.5",
-    "mongodb": ">= 1.4.29",
-    "mongoose": "latest",
+    "mongoose": "4.7.5",
     "mongoose-deep-populate": "latest",
     "mongoose-sanitizer": "latest",
     "multer": "latest"
