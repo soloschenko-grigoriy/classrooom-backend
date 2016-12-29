@@ -53,7 +53,7 @@ fs.readFile(__dirname + '/../app/src/boot.ts', 'utf8', function (err,data) {
 
   var result =
     data
-      .replace('\nexport class', `import {i${modelName}Model, ${modelName}} from './modules/${moduleName}/${fileName}-model';\nimport {${modelName}Controller} from './modules/${moduleName}/${fileName}-controller';\nimport {${modelName}Repository} from './modules/${moduleName}/${fileName}-repository';
+      .replace('export class', `import {i${modelName}Model, ${modelName}} from './modules/${moduleName}/${fileName}-model';\nimport {${modelName}Controller} from './modules/${moduleName}/${fileName}-controller';\nimport {${modelName}Repository} from './modules/${moduleName}/${fileName}-repository';
       \nexport class`)
       .replace('constructor(app){', `\n\tconstructor(app){\n\t\tnew ${modelName}Controller(app, new ${modelName}Repository(${modelName}));`);
 
