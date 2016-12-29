@@ -1,0 +1,28 @@
+import mongoose = require("mongoose");
+import sanitizerPlugin = require("mongoose-sanitizer");
+
+var deepPopulate = require("mongoose-deep-populate")(mongoose);
+
+export interface i%_MODEL_NAME_% {
+  name: string
+}
+
+var schema = new mongoose.Schema({
+  name: String
+});
+
+sanitizerPlugin(schema, { skip: {} });
+schema.plugin(deepPopulate, {});
+
+schema.set('toJSON', {
+  transform: function (doc, ret, options) {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+    delete ret.password;
+    delete ret.token;
+  }
+});
+
+export interface i%_MODEL_NAME_%Model extends i%_MODEL_NAME_%, mongoose.Document{}
+export var %_MODEL_NAME_% = mongoose.model<i%_MODEL_NAME_%Model>('%_MODEL_NAME_%', schema);

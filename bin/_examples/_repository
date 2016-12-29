@@ -1,0 +1,3 @@
+import {Repository} from "../../repository";
+
+export class %_MODEL_NAME_%Repository extends Repository{}

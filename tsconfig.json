@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir":"dist",
+    "watch": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

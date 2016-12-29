@@ -1,0 +1,10 @@
+import express = require('underscore');
+import {Controller} from "../../controller";
+
+export class %_MODEL_NAME_%Controller extends Controller{
+    configure(){
+        this.root = '/api/%_MODEL_NAME_%s';
+        this.routes = ['load','list','create','update', 'delete'];
+        return super.configure();
+    }
+}
