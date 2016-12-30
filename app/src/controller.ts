@@ -82,7 +82,7 @@ export class Controller implements iController{
   public allowCrossDomain(req : express.Request, res : express.Response, next : Function): Controller{
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,HEAD,POST,PUT,PATCH,UPDATE,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Length,Content-Type,X-Auth-Token');
+    res.header('Access-Control-Allow-Headers', 'Content-Length,Content-Type,X-Auth-Token,X-Requested-With,Authorization');
 
     return this;
   }
@@ -210,7 +210,7 @@ export class Controller implements iController{
 
     this.repository.update(req.params.id, req.body)
       .catch((e, status?) => {
-        res.status(status || 500).send(e);
+        res.status(500).send(e);
       })
       .then(r => {
         res.json(r);
