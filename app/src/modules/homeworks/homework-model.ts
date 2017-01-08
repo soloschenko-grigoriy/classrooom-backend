@@ -16,9 +16,7 @@ var schema = new mongoose.Schema({
   special: Boolean
 });
 
-sanitizerPlugin(schema, { skip: {
-  description: true
-} });
+sanitizerPlugin(schema, { skip: ['description'] });
 schema.plugin(deepPopulate, {});
 
 schema.set('toJSON', {
