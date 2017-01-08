@@ -11,6 +11,25 @@ import {iUserModel} from "../users/user-model";
 export class ScoreRepository extends Repository{
     // public list(data: Object) : Promise<mongoose.Document[]> {
     //     return new Promise((resolve, reject) => {
+    //         this.model.find({}).exec((e, scores) => {
+    //            if(e){return reject(e); }
+    //            scores.forEach((score:iScoreModel) => {
+    //                this.model.findOne({
+    //                    lesson: score.lesson,
+    //                    question: score.question,
+    //                    user: score.user
+    //                }).exec((e, r:iScoreModel) => {
+    //                    r.deleted = true;
+    //                    r.save();
+    //                    console.log(r._id);
+    //                });
+    //            });
+    //         });
+    //     });
+    // }
+
+    // public list(data: Object) : Promise<mongoose.Document[]> {
+    //     return new Promise((resolve, reject) => {
     //        this.model.find({}).exec((e, scores) => {
     //            if(e){return reject(e); }
 

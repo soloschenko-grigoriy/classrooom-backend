@@ -4,7 +4,7 @@ import {Controller} from "../../controller";
 export class HomeworkController extends Controller{
     configure(){
         this.root = '/api/homeworks';
-        this.routes = ['load','list','create','update', 'delete'];
+        this.routes = ['load','list','create','update'];
         return super.configure();
     }
 }

@@ -11,7 +11,8 @@ export interface iLesson {
   icon: string,
   position: number,
   active: boolean,
-  disabled: boolean
+  notest: boolean,
+  nohw: boolean,
 }
 
 var schema = new mongoose.Schema({
@@ -21,7 +22,8 @@ var schema = new mongoose.Schema({
   icon: String,
   position: Number,
   active: Boolean,
-  disabled: Boolean
+  notest: Boolean,
+  nohw: Boolean
 });
 
 sanitizerPlugin(schema, { skip: {} });

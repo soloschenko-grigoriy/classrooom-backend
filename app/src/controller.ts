@@ -87,6 +87,15 @@ export class Controller implements iController{
     return this;
   }
 
+  public checkCredentials(req : express.Request, res : express.Response, next : Function) : Boolean{
+    // if(!req.headers['x-auth-token']){
+    //   res.status(401).send('Access denied');
+    //   return false;
+    // }
+
+    return true;
+  }
+
   /**
    * Options request
    *
@@ -116,6 +125,8 @@ export class Controller implements iController{
   public count(req : express.Request, res : express.Response, next : Function) : Controller{
     this.allowCrossDomain(req, res, next);
 
+    if(!this.checkCredentials(req, res, next)){return this};
+
     this.repository.count(req.query)
       .catch((e, status?) => {
         res.status(status || 500).send(e);
@@ -138,6 +149,8 @@ export class Controller implements iController{
    */
   public load(req : express.Request, res : express.Response, next : Function) : Controller{
     this.allowCrossDomain(req, res, next);
+
+    if(!this.checkCredentials(req, res, next)){return this};
 
     this.repository.load(req.params.id, req.query)
       .catch((e, status?) => {
@@ -162,6 +175,8 @@ export class Controller implements iController{
   public list(req : express.Request, res : express.Response, next : Function) : Controller{
     this.allowCrossDomain(req, res, next);
 
+    if(!this.checkCredentials(req, res, next)){return this};
+
     this.repository.list(req.query)
       .catch((e, status?) => {
         res.status(status || 500).send(e);
@@ -185,6 +200,8 @@ export class Controller implements iController{
   public create(req : express.Request, res : express.Response, next : Function) : Controller{
     this.allowCrossDomain(req, res, next);
     
+    if(!this.checkCredentials(req, res, next)){return this};
+
     this.repository.create(req.body)
       .catch((e, status?) => {
         res.status(status || 500).send(e);
@@ -208,6 +225,8 @@ export class Controller implements iController{
   public update(req : express.Request, res : express.Response, next : Function) : Controller{
     this.allowCrossDomain(req, res, next);
 
+    if(!this.checkCredentials(req, res, next)){return this};
+
     this.repository.update(req.params.id, req.body)
       .catch((e, status?) => {
         res.status(500).send(e);
@@ -230,6 +249,8 @@ export class Controller implements iController{
    */
   public delete(req : express.Request, res : express.Response, next : Function) : Controller{
     this.allowCrossDomain(req, res, next);
+
+    if(!this.checkCredentials(req, res, next)){return this};
 
     this.repository.delete(req.params.id)
       .catch((e, status?) => {

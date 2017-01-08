@@ -10,6 +10,7 @@ export interface iScore {
   lesson: mongoose.Model<iLessonModel>,
   question: mongoose.Model<iQuestionModel>,
   user: mongoose.Model<iUserModel>,
+  answered: string,
   correct: boolean
 }
 
@@ -17,6 +18,7 @@ var schema = new mongoose.Schema({
   question: { type: mongoose.Schema.Types.ObjectId, ref: 'Question' },
   lesson: { type: mongoose.Schema.Types.ObjectId, ref: 'Lesson' },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },  
+  answered: String,
   correct: Boolean
 });
 

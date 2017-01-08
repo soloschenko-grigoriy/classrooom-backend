@@ -1,20 +1,24 @@
 import mongoose = require("mongoose");
 import sanitizerPlugin = require("mongoose-sanitizer");
-import {iQuestionModel} from "../questions/question-model";
+import {iLessonModel} from "../lessons/lesson-model";
 
 var deepPopulate = require("mongoose-deep-populate")(mongoose);
 
 export interface iHomework {
-  quesion: mongoose.Model<iQuestionModel>,
-  text: string
+  lesson: mongoose.Model<iLessonModel>,
+  description: string,
+  special: boolean
 }
 
 var schema = new mongoose.Schema({
-  quesion: { type: mongoose.Schema.Types.ObjectId, ref: 'Quesion' },
-  text: String
+  lesson: { type: mongoose.Schema.Types.ObjectId, ref: 'Lesson' },
+  description: String,
+  special: Boolean
 });
 
-sanitizerPlugin(schema, { skip: {} });
+sanitizerPlugin(schema, { skip: {
+  description: true
+} });
 schema.plugin(deepPopulate, {});
 
 schema.set('toJSON', {
