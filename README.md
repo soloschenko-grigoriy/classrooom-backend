@@ -10,6 +10,10 @@ START:
 --------------
 - npm start
 
+BUILD:
+--------------
+- npm build
+
 TEST:
 --------------
 - npm test
