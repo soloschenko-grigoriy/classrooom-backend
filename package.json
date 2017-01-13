@@ -23,7 +23,7 @@
   },
   "scripts": {
     "postinstall": "tsd install",
-    "start": "concurrently \"npm run nodemon\" \"npm run build\"",
+    "start": "concurrently \"npm run nodemon\" \"tsc -w\"",
     "add": "node bin/generate.js",
     "build": "tsc",
     "nodemon": "nodemon dist/app.js",
