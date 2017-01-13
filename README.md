@@ -12,7 +12,7 @@ START:
 
 BUILD:
 --------------
-- npm build
+- npm run build
 
 TEST:
 --------------
