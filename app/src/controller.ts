@@ -88,10 +88,10 @@ export class Controller implements iController{
   }
 
   public checkCredentials(req : express.Request, res : express.Response, next : Function) : Boolean{
-    if(!req.headers['x-auth-token']){
-      res.status(401).send('Access denied');
-      return false;
-    }
+    // if(!req.headers['x-auth-token']){
+    //   res.status(401).send('Access denied');
+    //   return false;
+    // }
 
     return true;
   }
