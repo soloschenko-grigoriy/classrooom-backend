@@ -2,13 +2,12 @@ var fs             = require('fs'),
     express        = require('express'),
     mongoose       = require('mongoose'),
     bodyParser     = require('body-parser'),
-    methodOverride = require('method-override'),
-    config         = require('../config');
+    methodOverride = require('method-override');
 
 var app = express();
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 9000));
 // Connect to mongodb
-var connect = function() {mongoose.connect(config.db, {server: {socketOptions: {keepAlive: 1}}});};
+var connect = function() {mongoose.connect(process.env.db, {server: {socketOptions: {keepAlive: 1}}});};
 connect();
 
 mongoose.connection.on('error', console.log);
