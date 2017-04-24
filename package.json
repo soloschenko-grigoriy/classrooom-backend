@@ -11,19 +11,19 @@
     "mongoose": "4.7.5",
     "mongoose-deep-populate": "latest",
     "mongoose-sanitizer": "latest",
-    "multer": "latest"
+    "multer": "latest",
+    "tsd": "0.6.5",
+    "typescript": "2.1.4"
   },
   "devDependencies": {
     "chai": "2.1.0",
     "concurrently": "3.1.0",
     "mocha": "2.3.4",
-    "nodemon": "1.11.0",
-    "tsd": "0.6.5",
-    "typescript": "2.1.4"
+    "nodemon": "1.11.0"
   },
   "scripts": {
-    "postinstall": "tsd install",
-    "start": "concurrently \"npm run nodemon\" \"tsc -w\"",
+    "postinstall": "tsd install && tsc",
+    "start": "node dist/app.js",
     "add": "node bin/generate.js",
     "build": "tsc",
     "nodemon": "nodemon dist/app.js",

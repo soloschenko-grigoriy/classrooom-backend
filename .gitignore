@@ -1,7 +1,6 @@
 .htaccess
 .DS_Store
 node_modules
-config.js
 uploads
 .idea
 typings
