@@ -6,7 +6,7 @@ var fs             = require('fs'),
     config         = require('../config');
 
 var app = express();
-
+app.set('port', (process.env.PORT || 5000));
 // Connect to mongodb
 var connect = function() {mongoose.connect(config.db, {server: {socketOptions: {keepAlive: 1}}});};
 connect();
@@ -29,6 +29,6 @@ app.use(methodOverride(function(req, res)
 import {Boot} from './src/boot';
 new Boot(app);
 
-app.listen(9000);
-
-console.log('API v0.1 started 9000');
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
