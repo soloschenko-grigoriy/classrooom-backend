@@ -37,7 +37,7 @@ export class Repository implements iRepository{
     _.each(data, function(value, key)
     {
       switch(key){
-        case 'limit': limit = value; break;
+        case 'limit': limit = +value; break;
         case 'page' : page = value;  break;
         case 'sort' : sort = value;  break;
 
@@ -263,7 +263,7 @@ export class Repository implements iRepository{
       let doc: any = this.model
         .find(criteria)
         .select(fields)
-        .limit(limit)
+        .limit(+limit)
         .skip(page * limit)
         .sort(sort);
       
