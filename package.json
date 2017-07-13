@@ -30,7 +30,7 @@
     "test": "mocha --recursive"
   },
   "engines": {
-    "node": "6.9.2"
+    "node": "6.11.1"
   },
   "author": {
     "name": "Gregory Soloshchenko",
